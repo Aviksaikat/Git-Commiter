@@ -1,6 +1,6 @@
 Output "media/banner.gif"
 Set Shell fish
-Set FontSize 17
+Set FontSize 20
 Set Width 1280
 Set Height 720
 Set FontFamily "ubuntumono Nerd Font mono"

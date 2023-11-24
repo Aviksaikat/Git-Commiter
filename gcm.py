@@ -29,8 +29,7 @@ def git_add_and_commit(directory):
     subprocess.run(['git', 'commit', '-m', commit_message])
 
 def construct_commit_message(untracked_files, modified_files):
-    message = "Update and modify files for the project"
-    message += "- Add new files:\n"
+    message = "Update and modify files for the project\n- Add new files:\n"
     message += "\n".join(["  - {}".format(file) for file in untracked_files]) + "\n" if untracked_files else "None\n"
 
     message += "- Update files:\n"

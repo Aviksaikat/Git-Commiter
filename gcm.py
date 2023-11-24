@@ -1,41 +1,54 @@
 #!/usr/bin/python3
 import os
 import subprocess
+
 import click
 
+
 @click.command()
-@click.option('-d', '--directory', type=click.Path(exists=True), help='Directory to process')
+@click.option(
+    "-d", "--directory", type=click.Path(exists=True), help="Directory to process"
+)
 def git_add_and_commit(directory):
     # Change to the specified directory
     os.chdir(directory)
 
     # Get the list of untracked files
-    untracked_files = subprocess.check_output(['git', 'ls-files', '--others', '--exclude-standard'], text=True).splitlines()
+    untracked_files = subprocess.check_output(
+        ["git", "ls-files", "--others", "--exclude-standard"], text=True
+    ).splitlines()
 
     # Add untracked files to Git
     if untracked_files:
-        subprocess.run(['git', 'add'] + untracked_files)
+        subprocess.run(["git", "add"] + untracked_files)
 
     # Get the list of modified files
-    modified_files = subprocess.check_output(['git', 'ls-files', '--modified', '--exclude-standard'], text=True).splitlines()
+    modified_files = subprocess.check_output(
+        ["git", "ls-files", "--modified", "--exclude-standard"], text=True
+    ).splitlines()
 
     # Add modified files to Git
     if modified_files:
-        subprocess.run(['git', 'add'] + modified_files)
+        subprocess.run(["git", "add"] + modified_files)
 
     # Get the list of deleted files
-    deleted_files = subprocess.check_output(['git', 'ls-files', '--deleted'], text=True).splitlines()
+    deleted_files = subprocess.check_output(
+        ["git", "ls-files", "--deleted"], text=True
+    ).splitlines()
 
     # Add deleted files to Git
     if deleted_files:
-        subprocess.run(['git', 'add'] + deleted_files)
+        subprocess.run(["git", "add"] + deleted_files)
 
     # Construct the commit message
-    commit_message = construct_commit_message(untracked_files, modified_files, deleted_files)
+    commit_message = construct_commit_message(
+        untracked_files, modified_files, deleted_files
+    )
 
     # Commit changes
     if commit_message:
-        subprocess.run(['git', 'commit', '-m', commit_message])
+        subprocess.run(["git", "commit", "-m", commit_message])
+
 
 def construct_commit_message(untracked_files, modified_files, deleted_files):
     message = "Update and modify files for the project\n"
@@ -52,7 +65,10 @@ def construct_commit_message(untracked_files, modified_files, deleted_files):
         message += "- Deleted files:\n"
         message += "\n".join(["  - {}".format(file) for file in deleted_files]) + "\n"
 
-    return message.strip()  # Remove trailing newline if no new, modified, or deleted files
+    return (
+        message.strip()
+    )  # Remove trailing newline if no new, modified, or deleted files
+
 
 if __name__ == "__main__":
     git_add_and_commit()

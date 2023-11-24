@@ -4,7 +4,7 @@ Set FontSize 25
 Set Width 1280
 Set Height 720
 Set FontFamily "ubuntumono Nerd Font mono"
-Set Theme "Atom"
+Set Theme "Andromeda"
 # You'll likely want to add a Margin + MarginFill if you use BorderRadius.
 # Set Margin 20
 # Set MarginFill "#8ABDEC"

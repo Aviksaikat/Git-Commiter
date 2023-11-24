@@ -23,14 +23,21 @@ def git_add_and_commit(directory):
     if modified_files:
         subprocess.run(['git', 'add'] + modified_files)
 
+    # Get the list of deleted files
+    deleted_files = subprocess.check_output(['git', 'ls-files', '--deleted'], text=True).splitlines()
+
+    # Add deleted files to Git
+    if deleted_files:
+        subprocess.run(['git', 'add'] + deleted_files)
+
     # Construct the commit message
-    commit_message = construct_commit_message(untracked_files, modified_files)
+    commit_message = construct_commit_message(untracked_files, modified_files, deleted_files)
 
     # Commit changes
     if commit_message:
         subprocess.run(['git', 'commit', '-m', commit_message])
 
-def construct_commit_message(untracked_files, modified_files):
+def construct_commit_message(untracked_files, modified_files, deleted_files):
     message = "Update and modify files for the project\n"
 
     if untracked_files:
@@ -41,7 +48,11 @@ def construct_commit_message(untracked_files, modified_files):
         message += "- Updated files:\n"
         message += "\n".join(["  - {}".format(file) for file in modified_files]) + "\n"
 
-    return message.strip()  # Remove trailing newline if no new or modified files
+    if deleted_files:
+        message += "- Deleted files:\n"
+        message += "\n".join(["  - {}".format(file) for file in deleted_files]) + "\n"
+
+    return message.strip()  # Remove trailing newline if no new, modified, or deleted files
 
 if __name__ == "__main__":
     git_add_and_commit()

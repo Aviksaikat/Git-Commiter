@@ -10,7 +10,9 @@ Set Theme "Andromeda"
 # Set MarginFill "#8ABDEC"
 # Set BorderRadius 10
 Set Framerate 60
-Type "python3 gcm.py -d ."
+Type "gitcommiter -h"
+Enter
+Type "gitcommiter -d ."
 Enter
 Type "git log -1 --stat | awk '/Date/ {flag=1} /2 files changed/ {flag=0} flag'"
 Enter

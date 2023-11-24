@@ -1,3 +1,0 @@
-README.md
-gcm.sh
-modified_files.txt

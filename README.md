@@ -10,8 +10,16 @@ A Python script for automatically adding and committing new and modified files t
 
 ## 🛠️ Usage
 
+![](media/usecase.gif)
+
 ```bash
-python script.py -d /path/to/your/directory
+gitcommiter -d /path/to/your/directory
+```
+
+## Installation
+- Using pip
+```
+pip install gitcommiter
 ```
 
 ## ✨ Features
@@ -19,3 +27,7 @@ python script.py -d /path/to/your/directory
 - Automatically adds untracked files to Git. ✨
 - Automatically adds modified files to Git. ✅
 - Generates a clear commit message. 📝
+
+
+## Tools
+- Developed using [Hatch](https://hatch.pypa.io/latest/)

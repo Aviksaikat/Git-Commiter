@@ -18,4 +18,4 @@ python script.py -d /path/to/your/directory
 
 ## Showcase
 
-- Coming Soon
+![](media/banner.gif)

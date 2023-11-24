@@ -12,4 +12,6 @@ Set Theme "Atom"
 Set Framerate 60
 Type "python3 gcm.py -d ."
 Enter
+Type "git log -1 --stat | awk '/Date/ {flag=1} /2 files changed/ {flag=0} flag'"
+Enter
 Sleep 10s

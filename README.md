@@ -15,5 +15,7 @@ python script.py -d /path/to/your/directory
 - Automatically adds modified files to Git. ✅
 - Generates a clear commit message. 📝
 
-## 🏷️ Badges
-![](https://travis-ci.org/%3Caviksaikat%3E/%3CGit-Commiter%3E)
+
+## Showcase
+
+- Coming Soon

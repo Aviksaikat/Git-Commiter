@@ -1,6 +1,13 @@
 # 🚀 Git Commiter
 
+<div align="center">
+
 [![Python Version](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
+
+<img src="https://img.shields.io/github/last-commit/Aviksaikat/Git-Commiter?style=flat&color=1573D5" alt="git-last-commit" />
+<img src="https://img.shields.io/github/commit-activity/m/Aviksaikat/Git-Commiter?style=flat&color=1573D5" alt="GitHub commit activity" />
+<img src="https://img.shields.io/github/languages/top/Aviksaikat/Git-Commiter?style=flat&color=1573D5" alt="GitHub top language" />
+</div>
 
 ## Showcase
 

@@ -63,11 +63,11 @@ def construct_commit_message(untracked_files, modified_files):
     message = "Update and modify files for the project\n"
 
     if untracked_files:
-        message += "- Add new files:\n"
+        message += "- Added new files:\n"
         message += "\n".join(["  - {}".format(file) for file in untracked_files]) + "\n"
 
     if modified_files:
-        message += "- Update files:\n"
+        message += "- Updated files:\n"
         message += "\n".join(["  - {}".format(file) for file in modified_files]) + "\n"
 
     return message.strip()  # Remove trailing newline if no new or modified files

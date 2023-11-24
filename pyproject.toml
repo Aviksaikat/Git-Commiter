@@ -1,0 +1,6 @@
+[project]
+name = "gitcommiter"
+version = "0.1.0"
+description = "A Python script for automatically adding and committing new, modified, and deleted files to Git."
+authors = [{ name = "SAIKAT KARMAKAR", email = "saikickkarma@protonmail.com" }]
+

@@ -1,5 +1,5 @@
 Output "media/banner.gif"
-Set Shell fish
+Set Shell zsh
 Set FontSize 20
 Set Width 1280
 Set Height 720

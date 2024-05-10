@@ -22,19 +22,42 @@ def print_banner():
         )
     )
 
+
+def construct_commit_message(untracked_files, modified_files, deleted_files):
+    message = "Updated and modified files for the project\n"
+
+    if untracked_files:
+        message += "- Added new files:\n"
+        message += "\n".join(["  - {}".format(file) for file in untracked_files]) + "\n"
+
+    if modified_files:
+        message += "- Updated files:\n"
+        message += "\n".join(["  - {}".format(file) for file in modified_files]) + "\n"
+
+    if deleted_files:
+        message += "- Deleted files:\n"
+        message += "\n".join(["  - {}".format(file) for file in deleted_files]) + "\n"
+
+    return (
+        message.strip()
+    )  # Remove trailing newline if no new, modified, or deleted files
+
+
 @click.command()
 @click.option(
     "-d", "--directory", type=click.Path(exists=True), help="Directory to process"
 )
+@click.option("-p", "--push", is_flag=True, help="Push changes to the remote repository")
 @click.option("-h", "--help", is_flag=True, help="Print help message")
-def git_add_and_commit(directory, help):
+def git_add_and_commit(directory, push, help):
     if help:
         print_banner()
         click.echo("Automatically add and commit new, modified, and deleted files to Git and write super cool commit messages")
         click.echo("\nUsage:")
-        click.echo("  gitcommiter -d /path/to/your/directory")
+        click.echo("  gitcommiter -d /path/to/your/directory [-p]")
         click.echo("\nOptions:")
         click.echo("  -d, --directory  Directory to process")
+        click.echo("  -p, --push       Push changes to the remote repository")
         click.echo("  -h, --help       Print this message")
         click.get_current_context().exit()
 
@@ -83,25 +106,10 @@ def git_add_and_commit(directory, help):
     if commit_message:
         subprocess.run(["git", "commit", "-m", commit_message])
 
+    # Push changes if the -p/--push option is passed
+    if push:
+        subprocess.run(["git", "push"])
 
-def construct_commit_message(untracked_files, modified_files, deleted_files):
-    message = "Update and modify files for the project\n"
-
-    if untracked_files:
-        message += "- Added new files:\n"
-        message += "\n".join(["  - {}".format(file) for file in untracked_files]) + "\n"
-
-    if modified_files:
-        message += "- Updated files:\n"
-        message += "\n".join(["  - {}".format(file) for file in modified_files]) + "\n"
-
-    if deleted_files:
-        message += "- Deleted files:\n"
-        message += "\n".join(["  - {}".format(file) for file in deleted_files]) + "\n"
-
-    return (
-        message.strip()
-    )  # Remove trailing newline if no new, modified, or deleted files
 
 
 if __name__ == "__main__":

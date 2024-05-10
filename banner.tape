@@ -1,6 +1,6 @@
 Output "media/banner.gif"
 Set Shell zsh
-Set FontSize 18
+Set FontSize 19
 Set Width 1280
 Set Height 720
 Set FontFamily "ubuntumono Nerd Font mono"

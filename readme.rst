@@ -29,14 +29,16 @@ Run Git Commiter by providing the directory you want to process:
 Options:
 
 - ``-d, --directory``: Specify the directory to process.
+- ``-p, --push``: Push the changes to the git repository.
 - ``-h, --help``: Print the help message.
 
 Example
 -------
 
 .. code-block:: bash
-
     gitcommiter -d /path/to/your/directory
+    # Automatically push staged changes
+    gitcommiter -d /path/to/your/directory -p
 
 Features
 --------

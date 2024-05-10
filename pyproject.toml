@@ -1,6 +1,6 @@
 [project]
 name = "gitcommiter"
-version = "0.1.1"
+version = "0.1.2"
 description = "Automatically add and commit new, modified, and deleted files to Git and write super cool commit messages."
 authors = [{ name = "SAIKAT KARMAKAR", email = "saikickkarma@protonmail.com" }]
 dependencies = [

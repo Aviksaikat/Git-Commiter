@@ -3,6 +3,20 @@ name = "gitcommiter"
 version = "0.1.2"
 description = "Automatically add and commit new, modified, and deleted files to Git and write super cool commit messages."
 authors = [{ name = "SAIKAT KARMAKAR", email = "saikickkarma@protonmail.com" }]
+license = { file = "LICENSE" }
+readme = "README.md"
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
 dependencies = [
     "click>=8.1.7"
 ]

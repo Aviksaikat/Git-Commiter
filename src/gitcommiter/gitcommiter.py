@@ -48,8 +48,9 @@ def construct_commit_message(untracked_files, modified_files, deleted_files):
     "-d", "--directory", type=click.Path(exists=True), help="Directory to process"
 )
 @click.option("-p", "--push", is_flag=True, help="Push changes to the remote repository")
+@click.option("-nv", "--no-verify", is_flag=True, help="Ignore pre-commit hooks")
 @click.option("-h", "--help", is_flag=True, help="Print help message")
-def git_add_and_commit(directory, push, help):
+def git_add_and_commit(directory, push, no_verify, help):
     if help:
         print_banner()
         click.echo("Automatically add and commit new, modified, and deleted files to Git and write super cool commit messages")
@@ -58,6 +59,7 @@ def git_add_and_commit(directory, push, help):
         click.echo("\nOptions:")
         click.echo("  -d, --directory  Directory to process")
         click.echo("  -p, --push       Push changes to the remote repository")
+        click.echo("  -nv, --no-verify Ignore pre-commit hooks")
         click.echo("  -h, --help       Print this message")
         click.get_current_context().exit()
 
@@ -104,7 +106,10 @@ def git_add_and_commit(directory, push, help):
 
     # Commit changes
     if commit_message:
-        subprocess.run(["git", "commit", "-m", commit_message])
+        if no_verify:
+            subprocess.run(["git", "commit", "-m", commit_message, "--no-verify"])
+        else:
+            subprocess.run(["git", "commit", "-m", commit_message])
 
     # Push changes if the -p/--push option is passed
     if push:

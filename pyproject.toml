@@ -1,8 +1,8 @@
 [project]
 name = "gitcommiter"
-version = "0.1.2"
+version = "0.1.3"
 description = "Automatically add and commit new, modified, and deleted files to Git and write super cool commit messages."
-authors = [{ name = "SAIKAT KARMAKAR", email = "saikickkarma@protonmail.com" }]
+authors = [{ name = "SAIKAT KARMAKAR", email = "github.maturity983@passinbox.com" }]
 license = { file = "LICENSE" }
 readme = "README.md"
 
